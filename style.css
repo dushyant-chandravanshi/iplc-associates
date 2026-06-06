@@ -1,0 +1,954 @@
+/* ==========================================================================
+   1. RESET & FOUNDATIONS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    font-family: 'Inter', sans-serif;
+    color: #1A1A1A;
+    line-height: 1.6;
+
+    /* Full-page background image */
+    background: url('bg-photo-2.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll;
+    background-color: #F4EFEA;
+}
+
+/* Optional soft page overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(244, 239, 234, 0.18);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background-color: rgba(244, 239, 234, 0.72);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(139, 94, 60, 0.15);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+}
+
+/* .logo-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #5C3A21;
+    border-radius: 50% 0 50% 0;
+} */
+
+/* .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #1A1A1A;
+} */
+
+.logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #1A1A1A;
+
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.logo-text h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.8),
+        transparent
+    );
+
+    animation: shine 8s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -150%;
+    }
+
+    50% {
+        left: 150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+.logo-subtext {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666666;
+    margin-top: 2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #5C3A21;
+}
+
+.nav-links .cta-btn {
+    background-color: #5C3A21;
+    color: #FFFFFF;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links .cta-btn:hover {
+    background-color: #442A18;
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero-section {
+    min-height: calc(100vh - 92px);
+    display: flex;
+    align-items: center;
+    padding: 0 6rem;
+    position: relative;
+    background: transparent;
+}
+
+.hero-content {
+    max-width: 550px;
+    position: relative;
+    z-index: 2;
+    padding: 3rem 0;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #1A1A1A;
+    margin-bottom: 2rem;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: #4A4A4A;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    max-width: 500px;
+}
+
+.explore-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #5C3A21;
+    color: #FFFFFF;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.explore-btn:hover {
+    background-color: #442A18;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   4. FOOTER & SOCIALS SECTION
+   ========================================================================== */
+.footer {
+    /* background-color: rgba(232, 227, 220, 0.55); */
+    background-color: transparent;
+    /* backdrop-filter: blur(4px); */
+    padding: 4rem 4rem 2rem 4rem;
+    text-align: center;
+    border-top: 1px solid rgba(139, 94, 60, 0.1);
+}
+
+.footer-title {
+    transform: translateY(100px);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #5C3A21;
+    margin-bottom: 1.5rem;
+}
+
+.social-icons {
+    transform: translateY(80px);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.social-icons a {
+    /* transform: translateY(100px); */
+    color: #5C3A21;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #8B5E3C;
+    transform: scale(1.15);
+}
+
+.copyright {
+    /* transform: translateY(100px); */
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 2rem;
+    font-size: 0.8rem;
+    color: #777777;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding: 4rem 2rem 5rem 2rem;
+        align-items: flex-start;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 3rem 1.5rem 2rem 1.5rem;
+    }
+
+    .copyright {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    body {
+        background-attachment: scroll;
+        background-position: center top;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title,
+.hero-description,
+.explore-btn {
+    opacity: 0;
+}
+
+.hero-title {
+    animation: fadeUp 1.5s ease-out forwards;
+}
+
+.hero-description {
+    animation: fadeUp 1.5s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.explore-btn {
+    animation: fadeUp 1.5s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+/* .hero-title {
+    animation: fadeUp 2s ease forwards;
+}
+
+.hero-description {
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.explore-btn {
+    animation: fadeUp 2s ease forwards;
+    animation-delay: 1.6s;
+} */
+
+
+/* ==========================================
+   ABOUT PAGE
+========================================== */
+
+.page-header {
+    position: relative;
+    min-height: 300px;
+    padding: 6rem;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+/* .watermark-logo {
+    position: absolute;
+
+    right: -80px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 500px;
+    height: 500px;
+
+    background-image: url('logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 0.05;
+
+    pointer-events: none;
+} */
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 5rem;
+    font-weight: 600;
+    letter-spacing: 6px;
+
+    color: #5C3A21;
+
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+    opacity: 0;
+    animation: fadeUp 1.5s ease-out forwards;
+
+    position: relative;
+    z-index: 2;
+}
+
+.page-title::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: -150%;
+
+    width: 40%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.8),
+        transparent
+    );
+
+    animation: pageShine 8s infinite;
+}
+
+@keyframes pageShine {
+    0% {
+        left: -150%;
+    }
+
+    50% {
+        left: 150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+.page-content {
+    padding: 2rem 6rem 8rem 6rem;
+}
+
+.content-wrapper {
+    max-width: 900px;
+}
+
+.content-wrapper h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+
+    color: #5C3A21;
+
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.content-wrapper p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+
+    color: #444;
+
+    margin-bottom: 1.5rem;
+
+    opacity: 0;
+    animation: fadeUp 1.5s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.about-page {
+    background: linear-gradient(
+        to bottom,
+        #A9A9A9 0%,    /* Grey at the bottom */
+        #D5CEC7 50%,   /* Transition zone */
+        #FAF7F2 100%   /* Beige at the top */
+    ) !important;
+}
+
+.about-page::before {
+    display: none;
+}
+
+.about-layout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-text {
+    flex: 0.9;
+}
+
+/* .slideshow-container {
+    flex: 1.1;
+    position: relative;
+    width: 100%;
+    height: 550px;
+
+    overflow: hidden;
+    border-radius: 12px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+} */
+
+.slideshow-container {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 700px;
+    height: 700px;
+
+    opacity: 0.12;
+
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+
+    
+    transform: scale(1.05);
+
+    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 40%, transparent 100%);
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 40%, transparent 100%);
+}
+
+.slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Gradient: Dark on right, transparent on left */
+    background: linear-gradient(to left, #FAF7F2 0%, transparent 80%);
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   COMPLETE ANIMATED & STAGGERED SERVICES DROPDOWN
+   ========================================================================== */
+
+/* 1. Dropdown Anchor Parent Container */
+.dropdown { 
+    position: relative; 
+    display: inline-block; 
+}
+
+/* 2. Dropdown Card Container (Handles the overall fade and slide entry) */
+.dropdown-content {
+    display: block; /* Forces block display to allow CSS transitions to trigger */
+    position: absolute; 
+    top: 100%; 
+    left: 0;
+    background: #F4EFEA; 
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    z-index: 1001;
+    border-top: 2px solid #5C3A21; /* Accent baseline line */
+    
+    /* Initial Hidden State */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    pointer-events: none; /* Disables interaction while invisible */
+    
+    /* Smooth Transition Curve */
+    transition: opacity 0.3s ease, 
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                visibility 0.3s;
+}
+
+/* Container State on Hover */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto; /* Enables interaction */
+}
+
+/* 3. Dropdown Menu Link Buttons */
+.dropdown-content button {
+    display: block; 
+    width: 100%; 
+    padding: 1rem 1.25rem; 
+    border: none;
+    background: none; 
+    text-align: left; 
+    cursor: pointer; 
+    font-family: 'Inter', sans-serif; 
+    font-size: 0.9rem;
+    color: #1A1A1A;
+    
+    /* Initial Item Hidden State */
+    opacity: 0;
+    transform: translateY(10px);
+    
+    /* Configuration for staggered entry and default exit dynamics */
+    transition: opacity 0.25s ease, 
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.2s ease, 
+                color 0.2s ease;
+}
+
+/* Buttons State on Hovering the parent tab */
+.dropdown:hover .dropdown-content button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* One-by-One Staggered Entrance Timings */
+.dropdown:hover .dropdown-content button:nth-child(1) {
+    transition-delay: 0.08s; /* Intellectual Property slides out first */
+}
+.dropdown:hover .dropdown-content button:nth-child(2) {
+    transition-delay: 0.16s; /* Corporate & Commercial follows right after */
+}
+
+/* Interactive hover color adjustments when hovering over individual links */
+.dropdown-content button:hover { 
+    background: rgba(92, 58, 33, 0.06); 
+    color: #5C3A21; 
+    transition-delay: 0s !important; /* Overrides entry delay so highlighting reacts instantly */
+}
+
+/* --- Services List Animations --- */
+.service-content { display: none; }
+.service-list { list-style: none; padding: 0; }
+.service-list li {
+    font-size: 1.1rem; line-height: 2.5; color: #444;
+    opacity: 0; animation: fadeUp 1s ease-out forwards;
+}
+/* Staggers the items for a premium feel */
+.service-list li:nth-child(n) { animation-delay: calc(n * 0.08s); }
+
+/* --- Shiny Swipe for Service Headings --- */
+/* --- Updated Service Headings (Matches Industries We Serve style) --- */
+/* --- Expanded Service Headings (Matches image_f168a4.png with Larger Font) --- */
+.service-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 3rem;                               /* INCREASED FONT SIZE: Scaled up for premium prominence */
+    color: #5C3A21;                                  /* Matching bronze/gold text color */
+    border-bottom: 1px solid rgba(92, 58, 33, 0.3);  /* Clean underline line */
+    padding-bottom: 8px;                             /* Slightly expanded breathing room above the line */
+    margin-bottom: 2rem;
+    
+    /* Layout preservation for the shiny swipe sequence */
+    position: relative;
+    display: inline-block; 
+    overflow: hidden;
+    padding-right: 24px;   
+}
+
+/* Keeps the premium shine effect attached securely to the resized text */
+.service-content h2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.8),
+        transparent
+    );
+    animation: pageShine 8s infinite;
+}
+
+/* Optional: Add a bit of breathing room at the top since the main header is gone */
+.services-container {
+    padding-top: 6rem !important;
+}
+
+/* --- White Box Cards for Service Items --- */
+.service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;          /* Space between the white boxes */
+    margin-top: 2rem;
+    list-style: none;      /* Removes old bullet points */
+    padding: 0;
+}
+
+.service-list li {
+    background-color: #FFFFFF;
+    color: #2D2D2D;
+    font-size: 1.05rem;
+    font-weight: 400;
+    padding: 1.25rem 1.75rem;
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border-left: 3px solid #5C3A21; /* Theme accent line on the left of each box */
+    
+    /* Animation Initialization */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Keyframe for Card Entrance */
+@keyframes slideUpCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered Entrance Delays (One by One effect) */
+.service-list li:nth-child(1) { animation-delay: 0.1s; }
+.service-list li:nth-child(2) { animation-delay: 0.2s; }
+.service-list li:nth-child(3) { animation-delay: 0.3s; }
+.service-list li:nth-child(4) { animation-delay: 0.4s; }
+.service-list li:nth-child(5) { animation-delay: 0.5s; }
+.service-list li:nth-child(6) { animation-delay: 0.6s; }
+.service-list li:nth-child(7) { animation-delay: 0.7s; }
+.service-list li:nth-child(8) { animation-delay: 0.8s; }
+
+/* --- Hover Expansion Mechanics --- */
+.service-list li {
+    cursor: pointer;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+/* Accent highlight when hovering over a card */
+.service-list li:hover {
+    background-color: #FAF7F2; 
+    box-shadow: 0 8px 25px rgba(92, 58, 33, 0.08);
+}
+
+/* Service Title Styling inside the card */
+/* --- Updated Service Titles (Matches the clean uppercase + underline style) --- */
+.service-title {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5C3A21;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+    border-bottom: 1px solid rgba(92, 58, 33, 0.25);
+    padding-bottom: 4px;
+    transition: border-color 0.35s ease;
+}
+
+/* Enhances the underline subtly when the whole card is hovered */
+.service-list li:hover .service-title {
+    border-bottom-color: rgba(92, 58, 33, 0.6);
+}
+
+/* Hidden description block by default */
+.service-desc {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 0.92rem;
+    color: #555555;
+    line-height: 1.5;
+    /* Smooth multi-property transition for the downward slide effect */
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.3s ease, 
+                margin-top 0.4s ease;
+}
+
+/* Hover expansion trigger */
+.service-list li:hover .service-desc {
+    max-height: 120px; /* Allows the content area to expand downward */
+    opacity: 1;
+    margin-top: 0.75rem; /* Creates clean spacing above the description text */
+}
+
+/* --- Industry Header Typography & Animations --- */
+.industry-intro-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5C3A21;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(92, 58, 33, 0.2);
+    display: inline-block;
+    padding-bottom: 2px;
+    
+    /* Animation */
+    opacity: 0;
+    transform: translateY(15px);
+    animation: slideUpHeading 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.industry-intro-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #1A1A1A;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+    
+    /* Animation with slight delay */
+    opacity: 0;
+    transform: translateY(25px);
+    animation: slideUpHeading 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.1s;
+}
+
+.industry-intro-title em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.industry-intro-desc {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+    
+    /* Animation with more delay */
+    opacity: 0;
+    transform: translateY(25px);
+    animation: slideUpHeading 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+/* Keyframe for Header Elements */
+@keyframes slideUpHeading {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Industry 2-Column Grid & Cards --- */
+.industry-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.industry-list li {
+    background-color: #FFFFFF;
+    padding: 1.25rem 1.75rem;
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border-left: 3px solid #5C3A21;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    
+    /* Card entry starts after headings finish */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.industry-number {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #5C3A21;
+    font-weight: 600;
+    min-width: 25px;
+}
+
+.industry-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #1A1A1A;
+}
+
+/* Staggered Card Delays (Pushed back slightly to let title animate first) */
+.industry-list li:nth-child(1) { animation-delay: 0.35s; }
+.industry-list li:nth-child(2) { animation-delay: 0.4s; }
+.industry-list li:nth-child(3) { animation-delay: 0.45s; }
+.industry-list li:nth-child(4) { animation-delay: 0.5s; }
+.industry-list li:nth-child(5) { animation-delay: 0.55s; }
+.industry-list li:nth-child(6) { animation-delay: 0.6s; }
+.industry-list li:nth-child(7) { animation-delay: 0.65s; }
+.industry-list li:nth-child(8) { animation-delay: 0.7s; }
+.industry-list li:nth-child(9) { animation-delay: 0.75s; }
+.industry-list li:nth-child(10) { animation-delay: 0.8s; }
+
+
+/* --- About Page Headings & Spacing (Matches image_f16c85.png Style) --- */
+.about-page .page-title,
+.about-page .content-wrapper h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #5C3A21;
+    font-weight: 500;
+    display: inline-block;
+    border-bottom: 1px solid rgba(92, 58, 33, 0.25);
+    padding-bottom: 6px;
+}
+
+/* FONT SIZE: Scaled up the main page title */
+.about-page .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+/* REDUCED GAPS: Drastically slashes the banner height and padding */
+.about-page .page-header {
+    margin-top: 0 !important;        /* Snaps the banner block directly against the navbar */
+    padding-top: 2rem !important;    /* Pulls "ABOUT US" up near the top of the grey zone */
+    padding-bottom: 1rem !important; /* Tightens the bottom of the banner zone */
+    min-height: auto !important;     /* Overrides any tall preset height rules */
+    height: auto !important;
+}
+
+.about-page .page-content {
+    padding-top: 1.5rem !important;  /* Controls the spacing between the banner and "Who We Are" */
+}
+
+/* Spacing adjustments for the Subsection Title */
+.about-page .content-wrapper h2 {
+    font-size: 1.15rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}

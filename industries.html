@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Industries We Serve | IP & LC Associates</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="about-page">
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="IP & LC Associates Logo" class="logo-image">
+            </a>
+
+            <div class="logo-text">
+                <h1>IP & LC ASSOCIATES</h1>
+                <p class="logo-subtext">
+                    Intellectual Property | Corporate | Industry
+                </p>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="about.html">About</a>
+            
+            <div class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <button onclick="window.location.href='services.html?type=ip'">Intellectual Property</button>
+                    <button onclick="window.location.href='services.html?type=corporate'">Corporate & Commercial</button>
+                </div>
+            </div>
+
+            <a href="industries.html">Industries</a>
+            <a href="insights.html">Insights</a>
+            <a href="contact.html">Contact</a>
+            <a href="consultation.html" class="cta-btn">Consultation</a>
+        </nav>
+
+    </header>
+
+    <section class="page-content services-container">
+
+        <div class="content-wrapper">
+
+            <span class="industry-intro-sub">Industries We Serve</span>
+            <h1 class="industry-intro-title">Counsel that <em>understands</em> your industry.</h1>
+            <p class="industry-intro-desc">
+                We work across a diverse spectrum — from venture-backed startups to established enterprises, creators to manufacturers.
+            </p>
+
+            <ul class="industry-list">
+                <li>
+                    <span class="industry-number">01</span>
+                    <span class="industry-text">Technology</span>
+                </li>
+                <li>
+                    <span class="industry-number">02</span>
+                    <span class="industry-text">Software & SaaS</span>
+                </li>
+                <li>
+                    <span class="industry-number">03</span>
+                    <span class="industry-text">E-Commerce</span>
+                </li>
+                <li>
+                    <span class="industry-number">04</span>
+                    <span class="industry-text">Fashion & Apparel</span>
+                </li>
+                <li>
+                    <span class="industry-number">05</span>
+                    <span class="industry-text">Consumer Goods</span>
+                </li>
+                <li>
+                    <span class="industry-number">06</span>
+                    <span class="industry-text">Manufacturing</span>
+                </li>
+                <li>
+                    <span class="industry-number">07</span>
+                    <span class="industry-text">Healthcare</span>
+                </li>
+                <li>
+                    <span class="industry-number">08</span>
+                    <span class="industry-text">Media & Entertainment</span>
+                </li>
+                <li>
+                    <span class="industry-number">09</span>
+                    <span class="industry-text">Startups</span>
+                </li>
+                <li>
+                    <span class="industry-number">10</span>
+                    <span class="industry-text">Professional Services</span>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="slideshow-container">
+            <img src="law1.jpg" class="slide active">
+            <img src="law2.jpg" class="slide">
+            <img src="law3.jpg" class="slide">
+            <img src="law4.jpg" class="slide">
+            <img src="law5.jpg" class="slide">
+            <img src="law6.jpg" class="slide">
+        </div>
+
+    </section>
+
+    <script>
+    // Slideshow Rotator Loop
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    setInterval(() => {
+        if(slides.length > 0) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    }, 5000);
+    </script>
+
+</body>
+</html>

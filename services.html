@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Services | IP & LC Associates</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="about-page">
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="IP & LC Associates Logo" class="logo-image">
+            </a>
+
+            <div class="logo-text">
+                <h1>IP & LC ASSOCIATES</h1>
+                <p class="logo-subtext">
+                    Intellectual Property | Corporate | Industry
+                </p>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="about.html">About</a>
+            
+            <div class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <button onclick="window.location.href='services.html?type=ip'">Intellectual Property</button>
+                    <button onclick="window.location.href='services.html?type=corporate'">Corporate & Commercial</button>
+                </div>
+            </div>
+
+            <a href="industries.html">Industries</a>
+            <a href="insights.html">Insights</a>
+            <a href="contact.html">Contact</a>
+            <a href="consultation.html" class="cta-btn">Consultation</a>
+        </nav>
+
+    </header>
+
+    <section class="page-content services-container">
+
+        <div class="content-wrapper">
+
+            <div id="ip-list" class="service-content" style="display: none;">
+                <h2>Intellectual Property</h2>
+                <ul class="service-list">
+                    <li>
+                        <span class="service-title">Trademarks</span>
+                        <p class="service-desc">Comprehensive brand protection lifecycle including registration, prosecution, availability searches, and global portfolio brand enforcement strategies.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Copyrights</span>
+                        <p class="service-desc">Safeguarding original literary, artistic, dramatic, and musical works alongside software licensing and strategic digital asset protection protocols.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Patents</span>
+                        <p class="service-desc">Invention evaluation, patent drafting, filing, and meticulous prosecution across technical, mechanical, and pharmaceutical innovations.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Industrial Designs</span>
+                        <p class="service-desc">Protecting the distinct visual aesthetics, ornamentation, and external configurations of industrial commercial consumer products.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Domain Name Disputes</span>
+                        <p class="service-desc">Strategic recovery of compromised digital brand assets and legal representation during cyber-squatting actions under uniform dispute resolution processes.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">IP Licensing & Assignments</span>
+                        <p class="service-desc">Drafting and managing structured monetization frameworks, technology transfer pacts, cross-licensing deals, and asset assignment documentation.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Portfolio Management</span>
+                        <p class="service-desc">Continuous multi-jurisdictional brand audit management, renewal logging, tracking systems, and defense coordination against asset devaluation.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Enforcement & Litigation Support</span>
+                        <p class="service-desc">Vigorous counter-infringement operations, cease-and-desist mandates, asset seizure coordination, and targeted trial representation support.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="corporate-list" class="service-content" style="display: none;">
+                <h2>Corporate & Commercial</h2>
+                <ul class="service-list">
+                    <li>
+                        <span class="service-title">Commercial Contracts</span>
+                        <p class="service-desc">Drafting, negotiation, and risk remediation of critical operational master supply agreements, vendor pacts, and multi-tier operational contracts.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Business Advisory</span>
+                        <p class="service-desc">Ongoing corporate guidance navigating market-entry requirements, governance liabilities, and tactical operating protocols for dynamic modern entities.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Regulatory Compliance</span>
+                        <p class="service-desc">Direct compliance management matching complex domestic and statutory protocols across industry-specific operational frameworks.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Due Diligence</span>
+                        <p class="service-desc">Rigorous transactional legal investigation evaluating background exposure, transactional liabilities, and asset title clarity prior to major acquisitions.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Corporate Structuring</span>
+                        <p class="service-desc">Developing tax-efficient frameworks, structural entity planning, joint ventures, and customized shareholder operation layouts built for seamless scaling.</p>
+                    </li>
+                    <li>
+                        <span class="service-title">Commercial Transactions</span>
+                        <p class="service-desc">Legal administration of sophisticated strategic asset transfer schemes, specialized project financing, private investment structures, and buyouts.</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="slideshow-container">
+            <img src="law1.jpg" class="slide active">
+            <img src="law2.jpg" class="slide">
+            <img src="law3.jpg" class="slide">
+            <img src="law4.jpg" class="slide">
+            <img src="law5.jpg" class="slide">
+            <img src="law6.jpg" class="slide">
+        </div>
+
+    </section>
+
+    <script>
+    // Slideshow Logic
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    setInterval(() => {
+        if(slides.length > 0) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    }, 5000);
+
+    // Dynamic List Routing Logic
+    document.addEventListener("DOMContentLoaded", function() {
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get('type');
+        
+        const targetId = type ? type + '-list' : 'ip-list';
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            targetElement.style.display = 'block';
+        }
+    });
+    </script>
+
+</body>
+</html>

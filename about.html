@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | IP & LC Associates</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="about-page">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="IP & LC Associates Logo" class="logo-image">
+            </a>
+
+            <div class="logo-text">
+                <h1>IP & LC ASSOCIATES</h1>
+                <p class="logo-subtext">
+                    Intellectual Property | Corporate | Industry
+                </p>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="about.html">About</a>
+            
+            <!-- SERVICES DROPDOWN -->
+            <div class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <button onclick="window.location.href='services.html?type=ip'">Intellectual Property</button>
+                    <button onclick="window.location.href='services.html?type=corporate'">Corporate & Commercial</button>
+                </div>
+            </div>
+
+            <a href="industries.html">Industries</a>
+            <a href="insights.html">Insights</a>
+            <a href="contact.html">Contact</a>
+            <a href="consultation.html" class="cta-btn">Consultation</a>
+        </nav>
+
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1 class="page-title">
+            ABOUT US
+        </h1>
+    </section>
+
+    <!-- PAGE CONTENT -->
+    <section class="page-content">
+
+        <div class="content-wrapper">
+
+            <h2>Who We Are</h2>
+
+            <p>
+                IP & LC Associates is a multidisciplinary legal practice dedicated
+                to providing strategic legal solutions across Intellectual Property,
+                Corporate Law, Commercial Transactions, and Industry-specific advisory.
+            </p>
+
+            <p>
+                Our firm combines legal expertise with commercial understanding to
+                help businesses, innovators, entrepreneurs, and established
+                organizations navigate complex legal challenges while protecting
+                their most valuable assets.
+            </p>
+
+            <p>
+                We believe legal counsel should be practical, forward-looking,
+                and aligned with our clients' long-term business objectives.
+                Through a commitment to excellence, integrity, and responsiveness,
+                we deliver legal services that support growth and innovation.
+            </p>
+
+        </div>
+
+        <!-- SLIDESHOW CONTAINER -->
+        <div class="slideshow-container">
+            <img src="law1.jpg" class="slide active">
+            <img src="law2.jpg" class="slide">
+            <img src="law3.jpg" class="slide">
+            <img src="law4.jpg" class="slide">
+            <img src="law5.jpg" class="slide">
+            <img src="law6.jpg" class="slide">
+        </div>
+
+    </section>
+
+    <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    setInterval(() => {
+        if(slides.length > 0) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    }, 5000);
+    </script>
+
+</body>
+</html>

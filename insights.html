@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Insights | IP & LC Associates</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Loaded Playfair Display (Fancy Font) along with Inter and Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet override to give just the company name the fancy font -->
+    <style>
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif !important;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .logo-text .logo-subtext {
+            font-family: 'Inter', sans-serif !important;
+        }
+    </style>
+</head>
+
+<body class="about-page">
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo.png" alt="IP & LC Associates Logo" class="logo-image">
+            </a>
+
+            <div class="logo-text">
+                <h1>IP & LC ASSOCIATES</h1>
+                <p class="logo-subtext">
+                    Intellectual Property | Corporate | Industry
+                </p>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="about.html">About</a>
+            
+            <!-- SERVICES DROPDOWN -->
+            <div class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <button onclick="window.location.href='services.html?type=ip'">Intellectual Property</button>
+                    <button onclick="window.location.href='services.html?type=corporate'">Corporate & Commercial</button>
+                </div>
+            </div>
+
+            <a href="industries.html">Industries</a>
+            <a href="insights.html">Insights</a>
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+        </nav>
+
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1 class="page-title">
+            INSIGHTS
+        </h1>
+    </section>
+
+    <!-- PAGE CONTENT -->
+    <section class="page-content">
+
+        <div class="content-wrapper">
+
+            <h2>Latest Updates</h2>
+
+            <p style="font-style: italic; margin-top: 25px; font-size: 1.4rem; line-height: 1.6;">
+                Our founders are too busy choking their chickens. They'll soon start writing articles once they wash their hands :)
+            </p>
+
+        </div>
+
+        <!-- SLIDESHOW CONTAINER -->
+        <div class="slideshow-container">
+            <img src="law1.jpg" class="slide active">
+            <img src="law2.jpg" class="slide">
+            <img src="law3.jpg" class="slide">
+            <img src="law4.jpg" class="slide">
+            <img src="law5.jpg" class="slide">
+            <img src="law6.jpg" class="slide">
+        </div>
+
+    </section>
+
+    <!-- SLIDESHOW ANIMATION SCRIPT -->
+    <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    setInterval(() => {
+        if(slides.length > 0) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    }, 5000);
+    </script>
+
+</body>
+</html>

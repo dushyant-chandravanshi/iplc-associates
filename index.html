@@ -15,86 +15,150 @@
 </head>
 <body>
 
-    <header class="navbar">
-        <a href="index.html" class="logo-container" style="text-decoration: none; color: inherit;">
-            <img src="logo.png" alt="IP & LC Associates Logo" class="logo-image">
-
-            <div class="logo-text">
-                <h1>IP & LC ASSOCIATES</h1>
-                <p class="logo-subtext">
-                    Advocates & Intellectual Property Attorneys
-                </p>
-            </div>
-        </a>
-
-        <!-- <nav class="nav-links">
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="industries.html">Industries</a>
-            <a href="insights.html">Insights</a>
-            <a href="contact.html">Contact</a>
-            <a href="contact.html" class="cta-btn">Contact Us</a>
-        </nav> -->
-
-        <nav class="nav-links">
-            <a href="about.html">About</a>
+    <!-- ==========================================================================
+       LEGAL DISCLAIMER OVERLAY
+       ========================================================================== -->
+    <div id="disclaimer-overlay">
+        <div class="disclaimer-box">
             
-            <div class="dropdown">
-                <a href="#">Services</a>
-                <div class="dropdown-content">
-                    <button onclick="window.location.href='services.html?type=ip'">Intellectual Property</button>
-                    <button onclick="window.location.href='services.html?type=corporate'">Corporate & Commercial</button>
+            <!-- STAGE 1 CONTENT: Legal Verbiage & Option Triggers -->
+            <div id="disclaimer-main-content">
+                <h2>DISCLAIMER</h2>
+                <div class="disclaimer-text">
+                    <p>The Indian Bar Council prohibit law firms from advertising and soliciting work through communication in the public domain. This website is meant solely for the purpose of information and not for the purpose of advertising. IP & LC Associates does not intend to solicit clients through this website. Furthermore, this website is for informational purposes only and we do not take responsibility for the decisions taken by the reader based solely on the information provided on the website. For more details on the terms of our website, please ensure that you read our Terms of Use. Please note that once you proceed to the website, we may collect some personal data. For more details, please review our Privacy Policy. Our Privacy Policy details the personal data we collect, why we collect it, how we use it, the measures we take to ensure its security, how we may share information with trusted partners for specific purposes, and how you may exercise your rights in this regard. By clicking on the "I AGREE" button, you specifically agree that the terms of the afore-mentioned i.e. this Disclaimer, the Terms of Use and the Privacy Policy are acceptable to you and that you agree to be bound by them. If you do not agree or are not willing to be bound by the Terms of Use and the Privacy Policy, please do not click on the "I DISAGREE" button and do not seek to obtain access to or otherwise use the Website.</p>
+                </div>
+                <div class="disclaimer-buttons">
+                    <button id="agree-btn">I AGREE</button>
+                    <button id="disagree-btn">I DISAGREE</button>
                 </div>
             </div>
 
-            <a href="industries.html">Industries</a>
-            <a href="insights.html">Insights</a>
-            <!-- <a href="contact.html">Contact</a> -->
-            <a href="contact.html" class="cta-btn">Contact Us</a>
-        </nav>
-    </header>
+            <!-- STAGE 2 CONTENT: Clean Typographic Success Card -->
+            <div id="disclaimer-feedback">
+                <p>Thank You</p>
+            </div>
 
-    <main class="hero-section">
-        <div class="hero-content">
-            <h2 class="hero-title">Legal Expertise<br>Across<br>Innovation and Industry.</h2>
-            <p class="hero-description">
-                Delivering intellectual property, corporate and commercial legal advice that shapes the future.
-            </p>
-            <a href="#services" class="explore-btn">Book a Consultation</a>
         </div>
-    </main>
-
-    <!-- <section id="about" class="content-section">
-    <div class="section-container">
-        <h2>About Us</h2>
-        <p>
-            IP & LC Associates is a multidisciplinary legal practice focused on
-            Intellectual Property, Corporate Law, Commercial Transactions, and
-            Industry-specific legal advisory services.
-        </p>
-
-        <p>
-            We assist innovators, entrepreneurs, startups, corporations, and
-            established businesses in protecting their intellectual assets and
-            navigating complex legal challenges.
-        </p>
     </div>
-</section> -->
 
-    <footer class="footer">
-        <p class="footer-title">CONNECT WITH US</p>
+    <!-- ==========================================================================
+       MAIN HOMEPAGE WRAPPER
+       ========================================================================== -->
+    <div id="homepage-content">
+        <header class="navbar">
+            <a href="index.html" class="logo-container" style="text-decoration: none; color: inherit;">
+                <img src="logo.png" alt="IP & LC Associates Logo" class="logo-image">
 
-        <div class="social-icons">
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        </div>
+                <div class="logo-text">
+                    <h1>IP & LC ASSOCIATES</h1>
+                    <p class="logo-subtext">
+                        Advocates & Intellectual Property Attorneys
+                    </p>
+                </div>
+            </a>
 
-        <div class="copyright">
-            <p>IP & LC Intellectual Property | Corporate | Industry</p>
-            <p>Copyright © 2026 Intellectual Property.</p>
-        </div>
-    </footer>
+            <nav class="nav-links">
+                <a href="about.html">About</a>
+                
+                <div class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-content">
+                        <button onclick="window.location.href='services.html?type=ip'">Intellectual Property</button>
+                        <button onclick="window.location.href='services.html?type=corporate'">Corporate & Commercial</button>
+                    </div>
+                </div>
 
+                <a href="industries.html">Industries</a>
+                <a href="insights.html">Insights</a>
+                <a href="contact.html" class="cta-btn">Contact Us</a>
+            </nav>
+        </header>
+
+        <main class="hero-section">
+            <div class="hero-content">
+                <h2 class="hero-title">Legal Expertise<br>Across<br>Innovation and Industry.</h2>
+                <p class="hero-description">
+                    Delivering intellectual property, corporate and commercial legal advice that shapes the future.
+                </p>
+                <a href="#services" class="explore-btn">Book a Consultation</a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p class="footer-title">CONNECT WITH US</p>
+
+            <div class="social-icons">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="copyright">
+                <p>IP & LC Intellectual Property | Corporate | Industry</p>
+                <p>Copyright © 2026 Intellectual Property.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- STAGED ANIMATION SEQUENCE ENGINE -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const overlay = document.getElementById("disclaimer-overlay");
+            const box = document.querySelector(".disclaimer-box");
+            const mainContent = document.getElementById("disclaimer-main-content");
+            const feedback = document.getElementById("disclaimer-feedback");
+            const homepageContent = document.getElementById("homepage-content");
+            const agreeBtn = document.getElementById("agree-btn");
+            const disagreeBtn = document.getElementById("disagree-btn");
+
+            // Session lookup
+            if (sessionStorage.getItem("legalDisclaimerAccepted") === "true") {
+                overlay.style.display = "none";
+                homepageContent.classList.add("reveal-instantly");
+            } else {
+                setTimeout(function() {
+                    overlay.classList.add("show");
+                }, 150);
+            }
+
+            // Staged Timeline on "I AGREE" Trigger
+            agreeBtn.addEventListener("click", function () {
+                sessionStorage.setItem("legalDisclaimerAccepted", "true");
+                
+                // CRITICAL FIX: Freeze the box height exactly where it is right now
+                box.style.height = box.offsetHeight + "px";
+                
+                // STEP 1: Fade out legal text layout
+                mainContent.classList.add("wipe-out");
+                
+                // STEP 2: Swap layout pipelines after fade finishes (400ms)
+                setTimeout(function() {
+                    mainContent.style.display = "none";
+                    feedback.classList.add("pop-up");
+                    
+                    // STEP 3: Display 'Thank You' typing effect, then fade master mask out
+                    setTimeout(function() {
+                        overlay.classList.remove("show");
+                        
+                        // STEP 4: Reveal clean homepage content stream
+                        setTimeout(function() {
+                            overlay.style.display = "none";
+                            homepageContent.classList.add("reveal-gradually");
+                        }, 1200); 
+
+                    }, 1600); // Extended slightly to let the typing effect breathe
+
+                }, 400); 
+            });
+
+            // Disagree exit path
+            disagreeBtn.addEventListener("click", function () {
+                window.close();
+                setTimeout(function () {
+                    window.location.href = "https://www.google.com";
+                }, 250);
+            });
+        });
+    </script>
 </body>
 </html>

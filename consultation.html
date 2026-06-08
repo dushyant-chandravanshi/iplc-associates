@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Consultation | IP & LC Associates</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        .consultation-form-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        .form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #b5945b;
+        }
+        .conditional-group {
+            display: none; /* Hidden by default */
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #b5945b;
+            color: #fff;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #967949;
+        }
+        .message-box {
+            margin-top: 20px;
+            padding: 12px;
+            text-align: center;
+            border-radius: 4px;
+            display: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .success { background: #e6f4ea; color: #137333; }
+        .error { background: #fce8e6; color: #c5221f; }
+    </style>
+</head>
+<body class="about-page">
+
+    <header class="navbar">
+        <a href="index.html" class="logo-container" style="text-decoration: none; color: inherit;">
+            <img src="logo.png" alt="IP & LC Associates Logo" class="logo-image">
+            <div class="logo-text">
+                <h1>IP & LC ASSOCIATES</h1>
+                <p class="logo-subtext">Advocates & Intellectual Property Attorneys</p>
+            </div>
+        </a>
+        <nav class="nav-links">
+            <a href="about.html">About</a>
+            <a href="industries.html">Industries</a>
+            <a href="insights.html">Insights</a>
+            <a href="contact.html" class="cta-btn">Contact Us</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1 class="page-title">BOOK A CONSULTATION</h1>
+    </section>
+
+    <section class="page-content">
+        <div class="consultation-form-container">
+            <form id="consultationForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="industry">Choose an Industry for Consultation</label>
+                    <select id="industry" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="01 Technology">01 Technology</option>
+                        <option value="02 Software & SaaS">02 Software & SaaS</option>
+                        <option value="03 E-Commerce">03 E-Commerce</option>
+                        <option value="04 Fashion & Apparel">04 Fashion & Apparel</option>
+                        <option value="05 Consumer Goods">05 Consumer Goods</option>
+                        <option value="06 Manufacturing">06 Manufacturing</option>
+                        <option value="07 Healthcare">07 Healthcare</option>
+                        <option value="08 Media & Entertainment">08 Media & Entertainment</option>
+                        <option value="09 Startups">09 Startups</option>
+                        <option value="10 Professional Services">10 Professional Services</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Choose a Service</label>
+                    <select id="service" required onchange="handleServiceChange()">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="ip">Intellectual Property (IP)</option>
+                        <option value="corporate">Corporate & Commercial</option>
+                    </select>
+                </div>
+
+                <div class="form-group conditional-group" id="ipGroup">
+                    <label for="ipMatter">Choose a Matter of Interest</label>
+                    <select id="ipMatter">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Trademarks">Trademarks</option>
+                        <option value="Copyrights">Copyrights</option>
+                        <option value="Patents">Patents</option>
+                        <option value="Industrial Designs">Industrial Designs</option>
+                        <option value="Domain Name Disputes">Domain Name Disputes</option>
+                        <option value="IP Licensing & Assignments">IP Licensing & Assignments</option>
+                        <option value="Portfolio Management">Portfolio Management</option>
+                        <option value="Enforcement & Litigation Support">Enforcement & Litigation Support</option>
+                    </select>
+                </div>
+
+                <div class="form-group conditional-group" id="corporateGroup">
+                    <label for="corporateMatter">Choose a Matter of Interest</label>
+                    <select id="corporateMatter">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Commercial Contracts">Commercial Contracts</option>
+                        <option value="Business Advisory">Business Advisory</option>
+                        <option value="Regulatory Compliance">Regulatory Compliance</option>
+                        <option value="Due Diligence">Due Diligence</option>
+                        <option value="Corporate Structuring">Corporate Structuring</option>
+                        <option value="Commercial Transactions">Commercial Transactions</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Request</button>
+                <div id="msg" class="message-box"></div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function handleServiceChange() {
+            const service = document.getElementById('service').value;
+            const ipGroup = document.getElementById('ipGroup');
+            const ipSelect = document.getElementById('ipMatter');
+            const corporateGroup = document.getElementById('corporateGroup');
+            const corporateSelect = document.getElementById('corporateMatter');
+
+            // Reset dropdown validation requirements dynamically
+            if (service === 'ip') {
+                ipGroup.style.display = 'block';
+                ipSelect.required = true;
+                corporateGroup.style.display = 'none';
+                corporateSelect.required = false;
+                corporateSelect.value = "";
+            } else if (service === 'corporate') {
+                corporateGroup.style.display = 'block';
+                corporateSelect.required = true;
+                ipGroup.style.display = 'none';
+                ipSelect.required = false;
+                ipSelect.value = "";
+            } else {
+                ipGroup.style.display = 'none';
+                corporateGroup.style.display = 'none';
+            }
+        }
+
+        document.getElementById('consultationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const msgBox = document.getElementById('msg');
+            msgBox.style.display = 'block';
+            msgBox.className = 'message-box';
+            msgBox.innerText = 'Processing your submission...';
+
+            const payload = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                industry: document.getElementById('industry').value,
+                service: document.getElementById('service').value,
+                matter: document.getElementById('service').value === 'ip' ? 
+                        document.getElementById('ipMatter').value : document.getElementById('corporateMatter').value
+            };
+
+            try {
+                // Point submission payload directly to Cloudflare Functions API routing
+                const response = await fetch('/api/submit-consultation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    msgBox.className = 'message-box success';
+                    msgBox.innerText = 'Consultation request submitted successfully!';
+                    document.getElementById('consultationForm').reset();
+                    handleServiceChange();
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                msgBox.className = 'message-box error';
+                msgBox.innerText = 'Something went wrong. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>

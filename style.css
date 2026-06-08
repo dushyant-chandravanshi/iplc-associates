@@ -14,7 +14,7 @@ html {
 
 body {
     min-height: 100%;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #1A1A1A;
     line-height: 1.6;
 
@@ -917,7 +917,7 @@ body::before {
 /* --- About Page Headings & Spacing (Matches image_f16c85.png Style) --- */
 .about-page .page-title,
 .about-page .content-wrapper h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     color: #5C3A21;
@@ -951,4 +951,252 @@ body::before {
     font-size: 1.15rem;
     margin-top: 0;
     margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   6. LEGAL DISCLAIMER MODAL OVERLAY (SOLID DESIGN WITH STABLE BOUNDS)
+   ========================================================================== */
+#disclaimer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F4EFEA; /* Solid background prevents any early homepage bleed-through */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    padding: 24px;
+    box-sizing: border-box;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.2s ease;
+}
+
+#disclaimer-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.disclaimer-box {
+    background-color: #FFFFFF;
+    max-width: 680px;
+    width: 100%;
+    min-height: 460px; /* Structural anchor point so card proportions remain constant */
+    max-height: 85vh; 
+    padding: 45px;
+    border-radius: 2px;
+    box-shadow: 0 30px 70px rgba(92, 58, 33, 0.12);
+    border: 1px solid rgba(139, 94, 60, 0.15);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    transform: translateY(55px);
+    opacity: 0;
+    transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.6s ease, height 0.4s ease;
+}
+
+#disclaimer-overlay.show .disclaimer-box {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#disclaimer-main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0; 
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+#disclaimer-main-content.wipe-out {
+    opacity: 0;
+}
+
+.disclaimer-box h2 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 3px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 28px;
+    color: #5C3A21;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.disclaimer-text {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 35px;
+    padding-right: 14px;
+    border-bottom: 1px solid rgba(139, 94, 60, 0.1);
+    padding-bottom: 20px;
+}
+
+.disclaimer-text::-webkit-scrollbar {
+    width: 4px;
+}
+.disclaimer-text::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.01);
+}
+.disclaimer-text::-webkit-scrollbar-thumb {
+    background: rgba(92, 58, 33, 0.2);
+    border-radius: 2px;
+}
+
+.disclaimer-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #333333;
+    text-align: justify;
+    margin: 0;
+}
+
+.disclaimer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.disclaimer-buttons button {
+    padding: 0.9rem 2.8rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+#agree-btn {
+    background-color: #5C3A21; 
+    color: #FFFFFF;
+    border: 1px solid #5C3A21;
+}
+
+#agree-btn:hover {
+    background-color: #442A18;
+    border-color: #442A18;
+}
+
+#disagree-btn {
+    background-color: transparent;
+    color: #777777;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#disagree-btn:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    color: #1A1A1A;
+    border-color: rgba(0, 0, 0, 0.25);
+}
+
+/* --- STAGE 2: FAST REVEAL TYPING MODULE --- */
+#disclaimer-feedback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#disclaimer-feedback.pop-up {
+    display: flex;
+}
+
+#disclaimer-feedback p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.85rem;
+    letter-spacing: 3px;
+    font-weight: 400;
+    color: #5C3A21; 
+    margin: 0;
+    
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    opacity: 0;
+}
+
+#disclaimer-feedback.pop-up p {
+    animation: 
+        typeText 0.4s steps(9, end) forwards, 
+        fadeInText 0.3s ease-out forwards;
+}
+
+@keyframes typeText {
+    from { width: 0; }
+    to { width: 170px; } 
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* ==========================================================================
+   7. MAIN CONTENT ISOLATION LAYERS (HOMEPAGE VISIBILITY MANAGEMENT)
+   ========================================================================== */
+#homepage-content {
+    display: none;
+    opacity: 0;
+}
+
+/* Fades the homepage in seamlessly after disclaimer is cleared out */
+#homepage-content.reveal-gradually {
+    display: block;
+    animation: smoothPageReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Bypass state for returning browser sessions */
+#homepage-content.reveal-instantly {
+    display: block;
+    opacity: 1;
+}
+
+@keyframes smoothPageReveal {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ==========================================================================
+   8. HANDHELD ADAPTIVE LAYOUTS
+   ========================================================================== */
+@media (max-width: 600px) {
+    .disclaimer-box {
+        padding: 28px 20px;
+        max-height: 88vh;
+        min-height: auto; /* Allow dynamic flex-packing on compact phone views */
+    }
+    .disclaimer-box h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+    .disclaimer-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .disclaimer-buttons button {
+        width: 100%;
+        padding: 0.85rem 1.5rem;
+    }
 }

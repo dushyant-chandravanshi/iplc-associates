@@ -1261,3 +1261,14 @@ body::before {
         margin-bottom: 12px;
     }
 }
+
+/* Unify all page titles to the elegant serif style */
+.hero-title, 
+.page-title, 
+.content-wrapper h2, 
+.service-content h2, 
+.disclaimer-box h2, 
+.industry-intro-title,
+.about-page .content-wrapper h2 {
+    font-family: 'Playfair Display', serif !important;
+}

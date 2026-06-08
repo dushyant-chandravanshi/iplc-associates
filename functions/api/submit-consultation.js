@@ -23,7 +23,7 @@ export async function onRequestPost(context) {
             from: "consultation@updates.iplcassociates.com",
             to: email,
             subject: "Consultation Request Confirmed | IP & LC Associates",
-            text: `Dear ${name},\n\nThank you for reaching out to IP & LC Associates. We have successfully received your consultation details regarding "${matter}" under the "${industry}" sector. Our legal team will review your message and contact you shortly.\n\nBest regards,\nIP & LC Associates`
+            text: `Dear ${name},\n\nThank you for reaching out to IP & LC Associates. We have successfully received your consultation request. Our legal team will review your request and contact you shortly.\n\nBest regards,\nIP & LC Associates`
         };
 
         // Dispatch email payload execution to the API cluster
